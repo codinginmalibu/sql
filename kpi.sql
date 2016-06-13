@@ -1,4 +1,4 @@
--- KPIs, or key performance indicators for a company
+-- KPIs - key performance indicators for a company
 
 /* =================
 Database Schema
