@@ -5,16 +5,16 @@ Database Schema
 
 purchases
 
-id	int
-user_id	int
-price	real
+id		int
+user_id		int
+price		real
 refunded_at	text
 created_at	text
 
 gameplays
 
-id	int
-user_id	int
+id		int
+user_id		int
 created_at	text
 platform	text
 
@@ -51,3 +51,4 @@ from purchases
 where refunded_at is	 null
 group by 1
 order by 1;
+
