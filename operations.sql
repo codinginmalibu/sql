@@ -1,4 +1,6 @@
+-- Initial 
 SELECT * FROM new_products LIMIT 10;
+SELECT * FROM legacy_products LIMIT 10;
 
 -- Union: Each SELECT statement within the UNION must have the same number of columns with similar data types. The columns in each SELECT statement must be in the same order. By default, the UNION operator selects only distinct values.
 
@@ -55,3 +57,5 @@ SELECT category FROM legacy_products;
 SELECT category FROM legacy_products
 EXCEPT
 SELECT category FROM new_products;
+
+
