@@ -2,6 +2,8 @@
 SELECT * FROM new_products LIMIT 10;
 SELECT * FROM legacy_products LIMIT 10;
 
+-- UNION example
+
 -- Union: Each SELECT statement within the UNION must have the same number of columns with similar data types. The columns in each SELECT statement must be in the same order. By default, the UNION operator selects only distinct values.
 
 SELECT item_name FROM legacy_products ORDER BY item_name;
@@ -36,6 +38,7 @@ SELECT id, avg(a.sale_price) FROM (
   SELECT id, sale_price FROM order_items_historic) AS a 
   GROUP BY 1;
 
+
 -- INTERSECT example
 -- brands in our newly acquired store are also in our legacy store.
 SELECT brand FROM new_products
@@ -46,6 +49,7 @@ SELECT brand FROM legacy_products;
 SELECT category FROM new_products
 INTERSECT
 SELECT category FROM legacy_products;
+
 
 -- EXCEPT example
 -- categories that are in the new_products table that aren't in the legacy_products table
