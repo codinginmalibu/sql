@@ -74,3 +74,13 @@ AND f.origin=flights.origin) + 1
  AS flight_sequence_number
 FROM flights;
 
+
+-- COUNTS
+SELECT count(*) FROM flights;
+
+SELECT count(*) 
+FROM flights 
+WHERE arr_time IS NOT NULL AND destination IS "ATL";
+
+-- CONDITIONAL LOGIC
+
