@@ -83,4 +83,30 @@ FROM flights
 WHERE arr_time IS NOT NULL AND destination IS "ATL";
 
 -- CONDITIONAL LOGIC
+SELECT
+    CASE
+        WHEN elevation < 250 THEN 'Low'
+        WHEN elevation BETWEEN 250 AND 1749 THEN 'Medium'
+        WHEN elevation >= 1750 THEN 'High'
+        ELSE 'Unknown'
+    END AS elevation_tier
+    , COUNT(*)
+FROM airports
+GROUP BY 1;
+
+SELECT state, 
+COUNT(CASE WHEN elevation < 1000 THEN 1 ELSE NULL END) as count_low_elevation_airports 
+FROM airports 
+GROUP BY state;
+
+SELECT origin, sum(distance) as total_flight_distance, sum(CASE WHEN carrier = 'DL' THEN distance ELSE 0 END) as total_delta_flight_distance 
+FROM flights 
+GROUP BY origin;
+
+SELECT     origin, 
+    100.0*(sum(CASE WHEN carrier = 'DL' THEN distance ELSE 0 END)/sum(distance)) as percentage_flight_distance_from_united FROM flights 
+GROUP BY origin;
+
+SELECT state, 100.0 * sum(CASE WHEN elevation >= 2000 THEN 1 ELSE 0 END) / count(*)  as percentage_high_elevation_airports FROM airports GROUP BY state;
+
 
