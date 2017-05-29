@@ -31,5 +31,18 @@ SELECT id, MIN(cook_time, cool_down_time) AS max_time
 FROM baked_goods ORDER BY max_time DESC;
 
 
+-- String functions
+
+SELECT city || ', ' || state as location
+FROM bakeries;
+
+SELECT first_name || ' ' || last_name as full_name 
+FROM bakeries;
+
+SELECT id, REPLACE(ingredients,'_',' ') as item_ingredients
+from baked_goods;
+
+SELECT REPLACE(ingredients,'enriched_',' ') as item_ingredients
+FROM baked_goods;
 
 
